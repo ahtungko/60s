@@ -7,7 +7,7 @@ class ServiceExRate {
 
   handle(): RouterMiddleware<'/exchange_rate'> {
     return async ctx => {
-      const currency = ctx.request.url.searchParams.get('currency') || 'CNY'
+      const currency = ctx.request.url.searchParams.get('currency') || 'MYR'
 
       const data = await this.#fetch(currency)
 
@@ -27,7 +27,7 @@ class ServiceExRate {
     }
   }
 
-  async #fetch(currency = 'CNY') {
+  async #fetch(currency = 'MYR') {
     const dayKey = Common.localeDate()
     const cache = this.#cache.get(dayKey)
 

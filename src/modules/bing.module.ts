@@ -50,7 +50,7 @@ class ServiceBing {
       return cache
     }
 
-    const api = 'https://cn.bing.com/'
+    const api = 'https://bing.com/'
     // https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=10
 
     const rawContent = await (await fetch(api, { headers: { 'User-Agent': Common.chromeUA } })).text()
@@ -92,7 +92,7 @@ class ServiceBing {
         headline: Headline,
         description: Description,
         main_text: QuickFact?.MainText || '',
-        cover: Image?.Wallpaper ? `https://cn.bing.com${Image.Wallpaper.replaceAll('1920x1200', '1920x1080')}` : '',
+        cover: Image?.Wallpaper ? `https://bing.com${Image.Wallpaper.replaceAll('1920x1200', '1920x1080')}` : '',
         copyright: Copyright,
         update_date: today,
         update_date_at: Date.now(),

@@ -89,7 +89,7 @@ class ServiceEpic {
         free_start_at: promotionStartAt,
         free_end: Common.localeTime(promotionEndAt),
         free_end_at: promotionEndAt,
-        link: slug ? `https://store.epicgames.com/store/zh-CN/p/${slug}` : '',
+        link: slug ? `https://store.epicgames.com/store/en-US/p/${slug}` : '',
       }
     })
   }

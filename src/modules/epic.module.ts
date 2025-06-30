@@ -36,7 +36,7 @@ class ServiceEpic {
 
   async #fetch() {
     const api =
-      'https://store-site-backend-static-ipv4.ak.epicgames.com/freeGamesPromotions?locale=zh-CN&country=CN&allowCountries=CN'
+      'https://store-site-backend-static-ipv4.ak.epicgames.com/freeGamesPromotions?locale=en-US&country=MY&allowCountries=MY'
     const data = ((await (await fetch(Common.useProxiedUrl(api))).json()) || {}) as any
 
     const allGames = (data?.data?.Catalog?.searchStore?.elements || []) as GameItem[]

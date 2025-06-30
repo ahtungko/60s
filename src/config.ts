@@ -7,4 +7,4 @@ export const config = {
   encodingParamName: process.env.ENCODING_PARAM_NAME || 'encoding',
 }
 
-export const COMMON_MSG = `所有数据均来自官方，确保稳定与实时，用户群: ${config.group}，开源地址: ${config.github}`
+export const COMMON_MSG = `All data originates from official sources, ensuring real-time accuracy and system stability.`

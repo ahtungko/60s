@@ -4,56 +4,56 @@ import type { RouterMiddleware } from '@oak/oak'
 
 // The data structure we want to provide remains the same
 interface BingItem {
-  title: string
-  headline: string
-  description: string
-  cover: string
-  main_text: string
-  copyright: string
-  update_date: string
+  title: string
+  headline: string
+  description: string
+  cover: string
+  main_text: string
+  copyright: string
+  update_date: string
 }
 
 class ServiceBing {
-  #cache = new Map<string, BingItem>()
+  #cache = new Map<string, BingItem>()
 
-  handle(): RouterMiddleware<'/bing'> {
-    return async (ctx) => {
-      const data = await this.#fetch()
+  handle(): RouterMiddleware<'/bing'> {
+    return async (ctx) => {
+      const data = await this.#fetch()
 
-      if (!data) {
-        ctx.response.status = 500
-        ctx.response.body = Common.buildJson(null, 500, '获取数据失败')
-        return
-      }
+      if (!data) {
+        ctx.response.status = 500
+        ctx.response.body = Common.buildJson(null, 500, '获取数据失败')
+        return
+      }
 
-      switch (ctx.state.encoding) {
-        case 'text':
-          ctx.response.body = data.cover || ''
-          break
+      switch (ctx.state.encoding) {
+        case 'text':
+          ctx.response.body = data.cover || ''
+          break
 
-        case 'image':
-          ctx.response.redirect(data.cover || '')
-          break
+        case 'image':
+          ctx.response.redirect(data.cover || '')
+          break
 
-        case 'json':
-        default:
-          ctx.response.body = Common.buildJson(data)
-          break
-      }
-    }
-  }
+        case 'json':
+        default:
+          ctx.response.body = Common.buildJson(data)
+          break
+      }
+    }
+  }
 
-  async #fetch() {
-    const dailyUniqueKey = Common.localeDate()
-    const cache = this.#cache.get(dailyUniqueKey)
+  async #fetch() {
+    const dailyUniqueKey = Common.localeDate()
+    const cache = this.#cache.get(dailyUniqueKey)
 
-    if (cache) {
-      return cache
-    }
+    if (cache) {
+      return cache
+    }
 
-    const api = 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1'
+    const api = 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1'
 
-    try {
+    try {
       const res = await fetch(api)
       if (!res.ok) {
         // Log the error and return null if the fetch fails
@@ -87,7 +87,7 @@ class ServiceBing {
         console.error('Error fetching or parsing Bing data:', error)
         return null
     }
-  }
+  }
 }
 
 export const serviceBing = new ServiceBing()

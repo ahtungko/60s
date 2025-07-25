@@ -5,7 +5,7 @@
 一系列 **高质量、开源、可靠、全球 CDN 加速的** 开放 API 集合，使用 [Deno](https://deno.com/) 构建，托管在 [Deno Deploy](https://deno.com/deploy) 上，也支持 [Docker](https://docker.com)、[Cloudflare Workers](https://www.cloudflare.com/zh-cn/developer-platform/products/workers/)、[Bun](https://bun.sh/) 和 [Node.js](https://nodejs.org/) 部署。
 
 > [!WARNING]
-> v1 版本已于 2025/1/15 停止更新，在 [v1-legacy](https://github.com/vikiboss/60s/tree/v1-legacy) 分支上，请尽快迁移至 v2，v1 版本将于 2025/6/31 完全停止服务，届时域名会切换到 v2 版本。
+> v1 版本于 2025/1/15 停止更新并于 2025/7/2 切换到 60s-v1.viki.moe，v2 已切换到 60s.viki.moe。
 
 ## 🤔️ 缘起
 
@@ -148,6 +148,7 @@ npm install && npx wrangler publish
 |        春风伴我余生        | 10.00 | WeChat |         -          |
 |             杰             | 1.00  | WeChat |         -          |
 |            Blue            | 6.66  | WeChat | Blue 祝开发者 6666 |
+|           聆听、           | 10.00 | WeChat | 喝杯咖啡，记得加冰 |
 |            ---             |  ---  |  ---   |        ---         |
 |            *斌             | 12.90 | Alipay |         -          |
 |            *杰             | 20.00 | Alipay |         -          |

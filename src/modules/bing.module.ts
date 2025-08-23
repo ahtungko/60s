@@ -1,5 +1,4 @@
 import { Common } from '../common.ts'
-
 import type { RouterMiddleware } from '@oak/oak'
 
 // The data structure we want to provide remains the same
